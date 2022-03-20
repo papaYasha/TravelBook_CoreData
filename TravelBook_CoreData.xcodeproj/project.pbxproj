@@ -14,6 +14,7 @@
 		FA820B8027E70E69008B2D02 /* TravelBook_CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA820B7E27E70E69008B2D02 /* TravelBook_CoreData.xcdatamodeld */; };
 		FA820B8227E70E6E008B2D02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA820B8127E70E6E008B2D02 /* Assets.xcassets */; };
 		FA820B8527E70E6E008B2D02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA820B8327E70E6E008B2D02 /* LaunchScreen.storyboard */; };
+		FA820B8D27E7297C008B2D02 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA820B8C27E7297C008B2D02 /* ListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		FA820B8127E70E6E008B2D02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA820B8427E70E6E008B2D02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA820B8627E70E6E008B2D02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA820B8C27E7297C008B2D02 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				FA820B7527E70E69008B2D02 /* AppDelegate.swift */,
 				FA820B7727E70E69008B2D02 /* SceneDelegate.swift */,
 				FA820B7927E70E69008B2D02 /* ViewController.swift */,
+				FA820B8C27E7297C008B2D02 /* ListViewController.swift */,
 				FA820B7B27E70E69008B2D02 /* Main.storyboard */,
 				FA820B8127E70E6E008B2D02 /* Assets.xcassets */,
 				FA820B8327E70E6E008B2D02 /* LaunchScreen.storyboard */,
@@ -143,6 +146,7 @@
 				FA820B7A27E70E69008B2D02 /* ViewController.swift in Sources */,
 				FA820B7627E70E69008B2D02 /* AppDelegate.swift in Sources */,
 				FA820B8027E70E69008B2D02 /* TravelBook_CoreData.xcdatamodeld in Sources */,
+				FA820B8D27E7297C008B2D02 /* ListViewController.swift in Sources */,
 				FA820B7827E70E69008B2D02 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
