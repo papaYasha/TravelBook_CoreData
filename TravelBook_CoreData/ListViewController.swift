@@ -19,6 +19,9 @@ class ListViewController: UIViewController {
         super.viewDidLoad()
         config()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(getData), name: NSNotification.Name("newPlace"), object: nil)
+    }
     
     private func config() {
         configTableView()
@@ -39,7 +42,7 @@ class ListViewController: UIViewController {
         performSegue(withIdentifier: "2Map", sender: nil)
     }
     
-    private func getData() {
+    @objc private func getData() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
@@ -91,5 +94,6 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         chosenTitle = titles[indexPath.row]
         chosenTitleID = idies[indexPath.row]
         performSegue(withIdentifier: "2Map", sender: nil)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

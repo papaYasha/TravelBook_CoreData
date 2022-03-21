@@ -11,7 +11,7 @@ import CoreLocation
 import CoreData
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var nameText: UITextField!
     @IBOutlet weak var noteText: UITextField!
@@ -140,24 +140,42 @@ class ViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
-        
+        NotificationCenter.default.post(name: Notification.Name("newPlace"), object: nil)
+        navigationController?.popViewController(animated: true)
     }
-
 }
 
 extension ViewController: MKMapViewDelegate {
-    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        let reuseID = "myAnnotation"
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseID) as? MKPinAnnotationView
+        
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
+            pinView?.canShowCallout = true
+            pinView?.tintColor = UIColor.blue
+            let button = UIButton(type: UIButton.ButtonType.detailDisclosure)
+            pinView?.rightCalloutAccessoryView = button
+        } else {
+            pinView?.annotation = annotation
+        }
+        
+        return pinView
+    }
 }
 
 extension ViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if selectedTitle == "" {
-        let location = CLLocationCoordinate2D(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude)
-        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-        let region = MKCoordinateRegion(center: location, span: span)
-        mapView.setRegion(region, animated: true)
+            let location = CLLocationCoordinate2D(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude)
+            let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+            let region = MKCoordinateRegion(center: location, span: span)
+            mapView.setRegion(region, animated: true)
         } else {
-            print("error")
+            print("error suka")
         }
     }
 }
